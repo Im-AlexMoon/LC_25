@@ -204,4 +204,53 @@ If this works, your entire setup is correct!
 3. Implement and test locally before submitting
 4. Use breakpoints to debug complex logic
 
+## Disclaimer: IntelliSense Error (`__float128 is not supported on this target`)
+
+### What Is This Error?
+
+If you see error messages like:
+```
+Error while processing C/C++ (clang-diagnostic-error)
+__float128 is not supported on this target
+```
+
+**This is a false positive and is completely harmless.** Your code will compile and run perfectly fine.
+
+### Why Does It Appear?
+
+This error occurs when using **MinGW/GCC with MSYS2** because:
+
+1. **VS Code's IntelliSense uses Clang internally** - Even when configured for GCC
+2. **GCC 13+ libraries include `__float128`** - A special 128-bit floating-point type that GCC supports
+3. **Clang doesn't recognize `__float128` on Windows targets** - So it reports an error
+4. **Your actual compiler (g++) has no problem** - The error is only in the IDE's analysis
+
+### How to Fix It
+
+The solution is already configured in this project's `.vscode/settings.json`:
+
+```json
+"C_Cpp.codeAnalysis.clangTidy.args": [
+    "--checks=-clang-diagnostic-error"
+]
+```
+
+This tells clang-tidy to ignore diagnostic errors, preventing these false warnings from appearing.
+
+### If You Still See the Error
+
+1. **Reload VS Code**: Press `Ctrl+Shift+P` → Type "Developer: Reload Window"
+2. **Verify settings**: Check that `.vscode/settings.json` contains the configuration above
+3. **Reset IntelliSense**: Press `Ctrl+Shift+P` → Type "C/C++: Reset IntelliSense"
+
+### Bottom Line
+
+- ✅ Your code will compile correctly
+- ✅ Your code will run correctly
+- ✅ This is just a display issue in VS Code
+- ✅ You can safely ignore it if it still appears
+- ✅ It won't affect your LeetCode submissions
+
+If this error bothers you, the configuration above should eliminate it. If it persists after reloading VS Code, you can safely ignore it—it's a known quirk of using MinGW with VS Code.
+
 Happy coding! 🚀
