@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/Alexander_Moon/Desktop/GitHubRepos/LC_25/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\problem_template.dir\\src\\problem_template.cpp.obj -c C:\\Users\\Alexander_Moon\\Desktop\\GitHubRepos\\LC_25\\src\\problem_template.cpp",
+  "file": "C:/Users/Alexander_Moon/Desktop/GitHubRepos/LC_25/src/problem_template.cpp",
+  "output": "CMakeFiles/problem_template.dir/src/problem_template.cpp.obj"
+},
+{
+  "directory": "C:/Users/Alexander_Moon/Desktop/GitHubRepos/LC_25/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe   -g -std=gnu++17 -Wall -Wextra -Wpedantic -o CMakeFiles\\test.dir\\src\\test.cpp.obj -c C:\\Users\\Alexander_Moon\\Desktop\\GitHubRepos\\LC_25\\src\\test.cpp",
+  "file": "C:/Users/Alexander_Moon/Desktop/GitHubRepos/LC_25/src/test.cpp",
+  "output": "CMakeFiles/test.dir/src/test.cpp.obj"
+}
+]
